@@ -62,7 +62,7 @@ checkBtn.addEventListener("click", () => {
   const values = Array.from(inputs).map((i) => Number(i.value.trim()));
   const err = validateInput(values);
   if (err) {
-    resultText.textContent = "❌ " + err;
+    resultText.textContent = "다시 입력하세요 " + err;
     return;
   }
 
@@ -75,7 +75,7 @@ checkBtn.addEventListener("click", () => {
   const matched = evaluate(secret, values);
 
   if (matched === 5) {
-    resultText.textContent = `✅ 정답입니다! ${currentRow + 1}번 만에 맞췄어요!`;
+    resultText.textContent = ` 정답입니다 ${currentRow + 1}번 만에 맞췄어요`;
     checkBtn.disabled = true;
     return;
   } else {
@@ -85,7 +85,7 @@ checkBtn.addEventListener("click", () => {
   currentRow++;
 
   if (currentRow === maxRows) {
-    resultText.textContent = `💀 실패! 정답은 ${secret.join("")}입니다.`;
+    resultText.textContent = ` 실패 정답은 ${secret.join("")}입니다.`;
     checkBtn.disabled = true;
     return;
   }
